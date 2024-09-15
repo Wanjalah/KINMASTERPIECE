@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCHOOL PROJECT</title>
+    <title>KINsCare</title>
     <link rel="stylesheet" href="project.css">
     <!-- Add Font Awesome for social media icons -->
     <link rel="stylesheet" href="TONNYMULONGO.css">
@@ -19,7 +19,7 @@
             <div class="navbar-left">
                 <a href="Medilop" class="Medilop">
                   <i class="fa fa-plus-circle" style="font-size:24px"></i>
-                    <strong>Medi</strong>lop
+                    <strong>KIN</strong>CARE
                 </a>
             </div>
             <div class="navbar-center">
@@ -31,71 +31,109 @@
             <div class="navbar-right">
                 <a href="login" class="log">
                     Log In
-
                 </a>
                 <button class="sign">Sign Up</button>
             </div>
         </div>
         <div class="container">
             <div class="kin">
-                <h1 class="head1"><strong> We Care About <br>
-                    Your Health</strong></h1>
+                <h1 class="head1"><strong> Healing with heart <br> Driven by Expertise</strong></h1>
                 <div class="parag">
-                    <p>Our health providers ensure that
-                        you have been attended <br>on in due time.<br>
-                        Ensure to follow doctors instruction
-                        and keep safe.<br>The description of medication indicated for the 
-                        dosage<br> should be adhered to by the patient and take regular<br>
-                        Check in with the doctor to ensure there are no problems<br>that have not 
-                        been attended to!<br><br>We envision at helping our patients from every
-                        level <br>and at affordable cost to ensure no one is left out.<br>
-                        Care has everything to do with us working together with your <br>
-                        family to ensure it all work.<br><br>
-
-                        <div class="input-button-wrapper">
-                          <input type="text" id="email0" name="email" placeholder="Enter your email">
-                          <button type="submit" class="submit-btn">Sign up</button>
-                      </div>
-                      <div class="vertical-align">
+                    <p>At our hospital, your well-being is our mission. <br>
+                        Our dedicated healthcare team is committed to providing timely,<br> 
+                        compassionate care tailored to your unique needs. From accurate<br> diagnoses to personalized treatments, 
+                        we guide you every step<br> of the way. With a focus on safety, transparency, and affordability, <br>
+                        we work closely with you and your family to ensure your path to <br>recovery is smooth and supported. 
+                        Together, we create healthier futures.<br><br>
+                    </p>
+                    <div class="input-button-wrapper">
+                        <input type="text" id="email0" name="email" placeholder="Enter your email">
+                        <button type="submit" class="submit-btn">Sign up</button>
+                    </div>
+                    <div class="vertical-align">
                         <button id="button">Back Now</button>
-                        <div class="video-icon">
+                        <div class="video-icon" id="play-icon">
                             <i class="fa fa-play"></i>
                         </div>
                         <a href="#" class="play-video-link">Play Video</a>
-                      </div>
-                    <!-- <div style="display: inline;">
-                      <button id="button">Back Now</button>
-                      <div style="background-color: gray; border-radius: 50%; height: 50px; width: 50px;align-content: center;">
-                        <i class="fa fa-play" style="font-size:24px"></i></div>
-                      <a href="#" style="text-decoration: none; color: gray;">Play Video</a>
-                    </div> -->
+                    </div>
                 </div>
             </div>
-            <div class="image-container">
-                <img src="doctor patient communication.jpg" 
-            alt="Doctor and Patient Communication" class="image">
+            
+            <!-- Updated video container with poster image -->
+            <div class="video-container">
+                <video id="video" class="video" poster="doctor-patient-communication.jpg" controls style="display:none;">
+                    <source src="Doctor's Appointment _ English Conversation.mp4" type="video/mp4">
+                </video>
+                <!-- Poster image before the video is played -->
+                <img id="video-poster" src="doctor patient communication.jpg" alt="Doctor and Patient Communication" class="image">
             </div>
         </div>
-    </div>
+        
+        <!-- JavaScript to control play/pause functionality -->
+        <script>
+            const playIcon = document.getElementById('play-icon');
+            const video = document.getElementById('video');
+            const videoPoster = document.getElementById('video-poster');
+        
+            playIcon.addEventListener('click', function() {
+                // Hide the image and show the video
+                videoPoster.style.display = 'none'; // Hide the poster image
+                video.style.display = 'block'; // Show the video
+                video.play(); // Play the video
+            });
+        </script>
 
-    <div class="sub-container44">
-        <div class="span-div">
-            <span class="sub-span">95%</span>
-            <p class="span-text">Recovery Rate</p>
-        </div>
-        <div class="span-div">
-            <span class="sub-span">1,500+</span>
-            <p class="span-text">Employed</p>
-        </div>
-        <div class="span-div">
-            <span class="sub-span">3,000+</span>
-            <p class="span-text">Recovered</p>
-        </div>
-        <div class="span-div">
-            <span class="sub-span">100%</span>
-            <p class="span-text">Transparency</p>
-        </div>
+<div class="sub-container44">
+    <div class="span-div">
+        <span class="sub-span" data-target="95">0%</span>
+        <p class="span-text">recovery rate</p>
     </div>
+    <div class="line"></div> <!-- Line between items -->
+    <div class="span-div">
+        <span class="sub-span" data-target="1500">0+</span>
+        <p class="span-text">Employed</p>
+    </div>
+    <div class="line"></div> <!-- Line between items -->
+    <div class="span-div">
+        <span class="sub-span" data-target="3000">0+</span>
+        <p class="span-text">recovered</p>
+    </div>
+    <div class="line"></div> <!-- Line between items -->
+    <div class="span-div">
+        <span class="sub-span" data-target="100">0%</span>
+        <p class="span-text">Transparency</p>
+    </div>
+</div>
+
+<script>
+  // Function to animate the numbers slowly over 10 minutes
+function animateNumbers() {
+    const counters = document.querySelectorAll('.sub-span');
+    const duration = 600000; // 10 minutes in milliseconds
+
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const increment = target / (duration / 100); // Slow increment over time
+
+        const updateCounter = () => {
+            const current = +counter.innerText.replace(/[^0-9]/g, ''); // Extract current number
+            if (current < target) {
+                counter.innerText = Math.ceil(current + increment) + (counter.innerText.includes('%') ? '%' : '+');
+                setTimeout(updateCounter, 100); // Update every 100ms for smooth animation
+            } else {
+                counter.innerText = target + (counter.innerText.includes('%') ? '%' : '+');
+            }
+        };
+
+        updateCounter();
+    });
+}
+
+// Start the animation when the page loads
+window.addEventListener('DOMContentLoaded', animateNumbers);
+
+</script>
 
     <div class="services-section">
         <div class="section-header">Our Best <strong>Services</strong></div>
@@ -179,7 +217,7 @@
         <div class="section-header">Our Best <strong>Doctors</strong></div>
         <div class="main-doctors">
             <div class="doctors">
-                <span><img src="kin.png" alt="Dr. Kin Wanjala" style=""></span>
+                <span><img src="kin.png" alt="Dr. Kin Wanjala"></span>
                 <p>Dr. Kin Wanjala</p>
                 <p>The doctor you need to heal matters health.</p>
                 <p>Educational background is important here!</p>
@@ -299,7 +337,7 @@
                     <strong>Medi</strong>lop
                 </a>
                 <p class="footer-description">
-                    Medi lop is dedicated to providing top-notch healthcare services to ensure your well-being.
+                    <strong>KIN</strong>CARE is dedicated to providing top-notch healthcare services to ensure your well-being.
                 </p>
                 <div class="social-icons" style="text-decoration: none; color: white;">
                   <a href="#" class="fa fa-facebook"></a>
@@ -312,29 +350,33 @@
             </div>
             <!-- Second Column: Services -->
             <div class="footer-column">
-                <h3>Service</h3>
+                <h3>Services</h3>
                 <ul>
-                    <li><a href="#">Size Passport</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
+                    <p>Delivery support</p>
+                    <p>Contact Us</p>
+                    <p>Terms of use</p>
+                    <p>Privacy Policy</p>
                 </ul>
             </div>
             <!-- Third Column: Feature -->
             <div class="footer-column">
-                <h3>Feature</h3>
+                <h3>Features</h3>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">About Us</a></li>
+                    <p>Home</p>
+                    <p>Services</p>
+                    <p>Doctors</p>
+                    <p>Facilities</p>
+                    <p>About Us</p>
                 </ul>
             </div>
             <!-- Fourth Column: User -->
             <div class="footer-column">
-                <h3>User</h3>
+                <h3>Users</h3>
                 <ul>
-                    <li><a href="#"><i class="fas fa-user"></i> User Logo</a></li>
-                    <li><a href="#">User Register</a></li>
-                    <li><a href="#">User Setting</a></li>
+                    <p>User Login</p>
+                    <p>User register</p>
+                    <p>Forgot Password</p>
+                    <p>Account</p>
                 </ul>
             </div>
         </div>
